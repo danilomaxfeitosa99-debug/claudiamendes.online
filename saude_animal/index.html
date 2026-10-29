@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerta Veterinário: O Perigo Silencioso da Ração Seca para Felinos</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --primary: #c8102e;
+      --primary-dark: #9b0d23;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --border-color: #e5e7eb;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #128c7e;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 18px;
+    }
+
+    /* Top Portal Bar */
+    .topbar {
+      background-color: #111827;
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .topbar-brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .topbar-tag {
+      background: var(--primary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      padding: 24px 20px 48px;
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .breadcrumb span {
+      color: var(--primary);
+    }
+
+    /* Headline & Meta */
+    h1.headline {
+      font-size: 28px;
+      line-height: 1.3;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 14px;
+    }
+
+    p.subheadline {
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .meta-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 0;
+      margin-bottom: 24px;
+    }
+
+    .meta-author strong {
+      color: #111827;
+    }
+
+    /* Article Body */
+    .content p {
+      margin-bottom: 20px;
+    }
+
+    .lead-paragraph {
+      font-size: 20px;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    /* Media Containers */
+    .media-card {
+      margin: 28px 0;
+      background: #f9fafb;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .media-caption {
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--text-muted);
+      font-style: italic;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Callout & Highlights */
+    .highlight-box {
+      background: #fef2f2;
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 17px;
+    }
+
+    .highlight-box strong {
+      color: var(--primary-dark);
+    }
+
+    .info-list {
+      margin: 20px 0 28px 24px;
+    }
+
+    .info-list li {
+      margin-bottom: 12px;
+      padding-left: 6px;
+    }
+
+    /* CTA Section */
+    .cta-container {
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      border-radius: 8px;
+      padding: 24px 20px;
+      margin: 36px 0;
+      text-align: center;
+    }
+
+    .cta-container h3 {
+      font-size: 21px;
+      color: #14532d;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .cta-container p {
+      font-size: 16px;
+      color: #166534;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+      transition: all 0.2s ease;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(18, 140, 126, 0.5);
+    }
+
+    .btn-subtext {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 2px solid var(--border-color);
+    }
+
+    .comments-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .comments-header h4 {
+      font-size: 19px;
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .comment-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .comment-author {
+      font-weight: 700;
+      font-size: 15px;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .comment-text {
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .comment-meta {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 32px 16px;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: underline;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 17px;
+      }
+      h1.headline {
+        font-size: 24px;
+      }
+      p.subheadline {
+        font-size: 17px;
+      }
+      .container {
+        padding: 16px 14px 36px;
+      }
+      .btn-whatsapp {
+        font-size: 17px;
+        padding: 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar mimetizando portal de notícias -->
+  <header class="topbar">
+    <div class="topbar-brand">Portal Saúde &amp; Bem-Estar Pet</div>
+    <div class="topbar-tag">Especial Investigativo</div>
+  </header>
+
+  <main class="container">
+    <!-- Trilha editorial -->
+    <nav class="breadcrumb">
+      Início &gt; Medicina Felina &gt; <span>Medicina Preventiva</span>
+    </nav>
+
+    <!-- Manchete e Linha Fina -->
+    <h1 class="headline">Alerta Veterinário: O hábito comum de alimentar gatos apenas com ração seca pode estar reduzindo a expectativa de vida dos felinos em até 30%</h1>
+    
+    <p class="subheadline">Especialistas em nefrologia e nutrição felina explicam por que a desidratação crônica é a causa oculta da falência renal em gatos domésticos — e como receitas caseiras seguras vêm revertendo o quadro clínico.</p>
+
+    <!-- Metadados de Publicação -->
+    <div class="meta-box">
+      <div class="meta-author">Por <strong>Redação Saúde Animal</strong> | Revisão médica documental</div>
+      <div class="meta-date">Atualizado hoje às <span id="current-time">09:42</span></div>
+      <div>Tempo de leitura: <strong>4 minutos</strong></div>
+    </div>
+
+    <article class="content">
+      <p class="lead-paragraph">Se o seu gato consome exclusivamente ração seca comercial e você acredita que basta deixar um pote de água limpa ao lado, ele pode estar vivendo sob um quadro silencioso de desidratação renal há anos.</p>
+
+      <!-- IMAGEM 1: Contexto Clínico / Gato com comida -->
+      <figure class="media-card">
+        <!-- Substitua pelo link da sua imagem ou arquivo local 'gato-racao.jpg' -->
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80" alt="Gato olhando para tigela de ração">
+        <figcaption class="media-caption">
+          Fig 1: Estatísticas apontam que 1 em cada 3 felinos com mais de 8 anos desenvolve Doença Renal Crônica (DRC), com forte correlação aos baixos índices de umidade na alimentação tradicional.
+        </figcaption>
+      </figure>
+
+      <p>Dados de hospitais veterinários em todo o país mostram que problemas no trato urinário — como obstruções por cálculos, cistites idiopáticas e a temida Doença Renal Crônica (DRC) — já representam a principal causa de internação de emergência e óbito precoce em felinos domésticos.</p>
+
+      <p>A explicação científica para esse cenário não está na qualidade dos nutrientes da embalagem, mas sim na <strong>anatomia evolutiva do animal</strong>. Gatos descendem diretamente de felinos do deserto africano (<em>Felis lybica</em>). Durante milênios, a espécie evoluiu sem desenvolver um reflexo espontâneo de sede expressivo.</p>
+
+      <div class="highlight-box">
+        <strong>A armadilha da umidade:</strong> Na natureza, presas frescas fornecem entre 70% e 75% de água natural. A ração seca industrial, por sua vez, contém apenas de 8% a 10% de umidade. Mesmo bebendo água no pote, o felino não atinge a hidratação renal ideal.
+      </div>
+
+      <p>O resultado é a sobrecarga diária dos rins para concentrar uma urina densa, gerando microcristais que lesionam o néfron de forma lenta, cumulativa e sem sintomas visíveis até que mais de 70% da função renal já esteja comprometida.</p>
+
+      <!-- IMAGEM 2: A Expert Veterinária em Consulta -->
+      <figure class="media-card">
+        <!-- Substitua pelo link da sua foto real com a especialista ou 'dra-veterinaria.jpg' -->
+        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80" alt="Médica Veterinária atendendo felino">
+        <figcaption class="media-caption">
+          Fig 2: Especialistas em nutrologia felina defendem a transição orientada para alimentos úmidos e receitas naturais ricas em taurina como pilar de longevidade.
+        </figcaption>
+      </figure>
+
+      <p>Diante do aumento de casos em sua rotina clínica, veterinários focados em nutrologia começaram a prescrever dietas naturais cozidas, feitas com ingredientes comuns de supermercado, adaptadas especificamente para a fisiologia felina.</p>
+
+      <p>Diferente de fornecer restos de comida caseira — o que é extremamente perigoso devido ao risco de intoxicação por cebola, alho ou excesso de sal —, a alimentação natural correta utiliza proporções exatas de carnes magras, vísceras ricas em taurina, caldos de hidratação e vegetais funcionais de fácil digestão.</p>
+
+      <p>Tutores que implementaram os cardápios de receitas formuladas relatam melhorias nítidas em até 14 dias de transição:</p>
+
+      <ul class="info-list">
+        <li><strong>Volume e clareza da urina:</strong> O trato urinário é lavado com frequência, reduzindo a formação de cristais de estruvita e oxalato.</li>
+        <li><strong>Saúde da pelagem:</strong> Redução significativa da queda crônica de pelos e cessação de vômitos frequentes de bolas de pelo.</li>
+        <li><strong>Saciedade e controle de peso:</strong> Alimentos ricos em umidade e proteína verdadeira saciam mais sem causar picos glicêmicos que engordam gatos castrados.</li>
+      </ul>
+
+      <!-- Bloco de Transição para o WhatsApp -->
+      <div class="cta-container">
+        <h3>Receba o Cardápio de Receitas no WhatsApp Oficial</h3>
+        <p>Para garantir que nenhum tutor cometa erros nas proporções de nutrientes essenciais, a equipe técnica da veterinária preparou um manual prático em PDF com receitas balanceadas, lista de compras e orientações passo a passo.</p>
+        
+        <!-- INSIRA SEU LINK DO WHATSAPP AQUI ABAIXO -->
+        <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Li%20a%20mat%C3%A9ria%20sobre%20alimenta%C3%A7%C3%A3o%20natural%20felina.%20Quero%20receber%20o%20guia%20de%20receitas%20em%20PDF%20da%20Dra." target="_blank" class="btn-whatsapp">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+          </svg>
+          RECEBER CARDÁPIO NO WHATSAPP
+        </a>
+        <span class="btn-subtext">Envio direto do arquivo digital em PDF pelo WhatsApp da equipe</span>
+      </div>
+
+      <p>O preparo das refeições leva em média cerca de 2 horas no fim de semana para cozinhar e congelar em potes individuais a porção da semana inteira, dispensando a necessidade de preparar refeições diariamente.</p>
+
+      <p>Para obter mais detalhes sobre o protocolo de transição e o cardápio estruturado pela médica veterinária, utilize o canal de suporte oficial no aplicativo de mensagens.</p>
+    </article>
+
+    <!-- Seção de Comentários / Prova Social Estilo Portal -->
+    <section class="comments-section">
+      <div class="comments-header">
+        <h4>Comentários dos Leitores (14)</h4>
+        <span style="font-size: 13px; color: #6b7280;">Mais recentes primeiro</span>
+      </div>
+
+      <!-- Comentário 1 -->
+      <div class="comment-item">
+        <div class="comment-avatar">MS</div>
+        <div class="comment-body">
+          <div class="comment-author">Mariana Silveira</div>
+          <div class="comment-text">Meu gato Tom já teve dois episódios de obstrução na uretra e foi desesperador. Depois que tirei a ração seca e passei para as receitas naturais da Dra., os exames dele de urina limparam 100%. Vale cada centavo de esforço!</div>
+          <div class="comment-meta">Há 28 minutos • Responder</div>
+        </div>
+      </div>
+
+      <!-- Comentário 2 -->
+      <div class="comment-item">
+        <div class="comment-avatar">RC</div>
+        <div class="comment-body">
+          <div class="comment-author">Rodrigo Caldas</div>
+          <div class="comment-text">Falei com a equipe no WhatsApp ontem à noite, me enviaram o PDF certinho e me tiraram dúvidas antes de eu começar. Achei o material muito didático e muito mais barato do que ficar comprando aqueles sachês de marca cara no pet shop.</div>
+          <div class="comment-meta">Há 1 hora • Responder</div>
+        </div>
+      </div>
+
+      <!-- Comentário 3 -->
+      <div class="comment-item">
+        <div class="comment-avatar">CR</div>
+        <div class="comment-body">
+          <div class="comment-author">Carla Regina F.</div>
+          <div class="comment-text">Minha gata é super exigente e não comia nada diferente. A dica do caldo de ossos que tem no guia fez ela limpar o prato no primeiro dia. Muito obrigada pela matéria!</div>
+          <div class="comment-meta">Há 3 horas • Responder</div>
+        </div>
+      </div>
+
+      <!-- Comentário 4 -->
+      <div class="comment-item">
+        <div class="comment-avatar">AL</div>
+        <div class="comment-body">
+          <div class="comment-author">Ana Lúcia Barreto</div>
+          <div class="comment-text">Toda tutora de gato idoso precisa ler isso urgente. Perdi um persa para DRC há 4 anos sem saber que a falta de água na comida era a culpada. Parabéns à doutora pela iniciativa.</div>
+          <div class="comment-meta">Há 5 horas • Responder</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Institucional e Legal -->
+  <footer>
+    <p>Portal Saúde &amp; Bem-Estar Pet © 2026. Todos os direitos reservados.</p>
+    <p style="margin-top: 8px;">
+      <a href="#">Termos de Uso</a> | 
+      <a href="#">Política de Privacidade</a> | 
+      <a href="#">Aviso Legal e Isenção de Responsabilidade</a>
+    </p>
+    <p style="margin-top: 12px; font-size: 11px; color: #6b7280; max-width: 650px; margin-left: auto; margin-right: auto;">
+      Aviso Médico Veterinário: As informações contidas nesta publicação têm caráter educativo e informativo. A alimentação natural deve respeitar a saúde individual de cada animal. Consulte sempre o médico veterinário de sua confiança para acompanhamento clínico presencial.
+    </p>
+  </footer>
+
+  <script>
+    // Ajusta o horário para o momento exato do acesso do lead
+    (function() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const timeElem = document.getElementById('current-time');
+      if (timeElem) {
+        timeElem.textContent = `${hours}:${minutes}`;
+      }
+    })();
+  </script>
+</body>
+</html>
