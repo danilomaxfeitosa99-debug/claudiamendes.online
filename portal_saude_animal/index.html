@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alerta: O verdadeiro motivo pelo qual seu gato recusa a ração</title>
+  <title>Alerta: Seu gato não é "fresco" para comer.</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
-      --primary: #059669; /* Verde para remeter a natural/saúde/projeto */
-      --primary-dark: #047857;
+      --primary: #dc2626; /* Vermelho mudado para urgência e alerta */
+      --primary-dark: #b91c1c;
       --text-main: #1f2937;
       --text-muted: #4b5563;
       --bg-page: #f8fafc;
@@ -28,252 +28,185 @@
       font-size: 18px;
     }
 
-    /* Top Portal Bar */
-    .topbar {
-      background-color: #111827;
-      color: #fff;
-      padding: 8px 16px;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--primary);
-    }
-
+    .topbar { background-color: #111827; color: #fff; padding: 8px 16px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); }
     .topbar-brand { font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; color: #fff; }
-    .topbar-tag { background: var(--primary); padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 11px; }
+    .topbar-tag { background: var(--primary); padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 11px; letter-spacing: 0.5px; }
 
-    /* Main Container */
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      background: var(--bg-surface);
-      padding: 24px 20px 48px;
-      border-left: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
-    }
-
-    /* Breadcrumbs */
+    .container { max-width: 780px; margin: 0 auto; background: var(--bg-surface); padding: 24px 20px 48px; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); }
     .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; font-weight: 600; }
     .breadcrumb span { color: var(--primary); }
 
-    /* Headline & Meta */
-    h1.headline { font-size: 28px; line-height: 1.3; font-weight: 800; color: #111827; margin-bottom: 14px; }
-    p.subheadline { font-size: 19px; line-height: 1.45; color: var(--text-muted); margin-bottom: 18px; font-weight: 400; }
+    h1.headline { font-size: 30px; line-height: 1.25; font-weight: 800; color: #111827; margin-bottom: 14px; }
+    p.subheadline { font-size: 19px; line-height: 1.45; color: var(--text-muted); margin-bottom: 18px; font-weight: 500; }
 
-    .meta-box {
-      display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--text-muted);
-      border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-      padding: 10px 0; margin-bottom: 24px;
-    }
+    .meta-box { display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 10px 0; margin-bottom: 24px; }
     .meta-author strong { color: #111827; }
 
-    /* Article Body */
     .content p { margin-bottom: 20px; }
-    .lead-paragraph { font-size: 20px; font-weight: 500; color: #111827; }
+    .lead-paragraph { font-size: 21px; font-weight: 600; color: #111827; border-left: 4px solid var(--primary); padding-left: 16px; margin-bottom: 24px;}
 
-    /* Media Containers */
-    .media-card { margin: 28px 0; background: #f9fafb; border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; }
-    .media-card img { width: 100%; height: auto; display: block; object-fit: cover; }
-    .media-caption { padding: 10px 14px; font-size: 13px; line-height: 1.4; color: var(--text-muted); font-style: italic; border-top: 1px solid var(--border-color); }
+    .media-card { margin: 28px 0; background: #000; border-radius: 6px; overflow: hidden; position: relative; }
+    .media-card img { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.9; }
+    .media-caption { background: #f9fafb; padding: 10px 14px; font-size: 13px; line-height: 1.4; color: var(--text-muted); font-style: italic; border-top: 1px solid var(--border-color); }
 
-    /* Callout & Highlights */
-    .highlight-box {
-      background: #f0fdf4; border-left: 4px solid var(--primary); padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; font-size: 17px;
-    }
-    .highlight-box strong { color: var(--primary-dark); }
+    .alert-box { background: #fef2f2; border: 2px solid #fecaca; padding: 20px; margin: 28px 0; border-radius: 8px; }
+    .alert-box h4 { color: #b91c1c; font-size: 19px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .alert-box p { color: #7f1d1d; margin-bottom: 0; font-size: 17px; }
 
-    /* Kit List */
-    .kit-box {
-      background: #fffbeb; border: 1px solid #fde68a; padding: 20px; border-radius: 8px; margin: 24px 0;
-    }
-    .kit-box h4 { color: #b45309; margin-bottom: 12px; font-size: 19px; }
-    .kit-list { margin-left: 20px; list-style-type: none; margin-left: 0;}
-    .kit-list li { margin-bottom: 10px; padding-left: 28px; position: relative; font-size: 16px; font-weight: 500;}
-    .kit-list li::before { content: "📕"; position: absolute; left: 0; top: 0; }
-    .kit-list li.bonus::before { content: "🎁"; }
+    .kit-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 8px; margin: 24px 0; }
+    .kit-box h4 { color: #166534; margin-bottom: 12px; font-size: 19px; }
+    .kit-list { list-style-type: none; margin-left: 0;}
+    .kit-list li { margin-bottom: 10px; padding-left: 28px; position: relative; font-size: 16px; font-weight: 600; color: #14532d;}
+    .kit-list li::before { content: "✅"; position: absolute; left: 0; top: 0; }
 
-    /* CTA Section */
-    .cta-container { background: #f0fdf4; border: 2px dashed #86efac; border-radius: 8px; padding: 24px 20px; margin: 36px 0; text-align: center; }
-    .cta-container h3 { font-size: 21px; color: #14532d; margin-bottom: 10px; font-weight: 700; }
-    .cta-container p { font-size: 16px; color: #166534; margin-bottom: 20px; line-height: 1.5; }
+    .cta-container { background: #fffbeb; border: 2px dashed #fcd34d; border-radius: 8px; padding: 28px 20px; margin: 36px 0; text-align: center; }
+    .cta-container h3 { font-size: 22px; color: #b45309; margin-bottom: 12px; font-weight: 800; }
+    .cta-container p { font-size: 17px; color: #92400e; margin-bottom: 24px; line-height: 1.5; font-weight: 500; }
 
-    .btn-whatsapp {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--whatsapp); color: #ffffff;
-      font-size: 18px; font-weight: 700; text-decoration: none; padding: 16px 24px; border-radius: 50px;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); transition: all 0.2s ease; width: 100%; max-width: 480px;
-    }
+    .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--whatsapp); color: #ffffff; font-size: 19px; font-weight: 800; text-decoration: none; padding: 18px 24px; border-radius: 50px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); transition: all 0.2s ease; width: 100%; max-width: 480px; text-transform: uppercase; letter-spacing: 0.5px; }
     .btn-whatsapp:hover { background-color: var(--whatsapp-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(18, 140, 126, 0.5); }
-    .btn-subtext { display: block; font-size: 13px; color: var(--text-muted); margin-top: 12px; font-weight: 600; }
+    .btn-subtext { display: block; font-size: 14px; color: #dc2626; margin-top: 14px; font-weight: 700; }
 
-    /* Comments Section */
     .comments-section { margin-top: 48px; padding-top: 32px; border-top: 2px solid var(--border-color); }
     .comments-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-    .comments-header h4 { font-size: 19px; color: #111827; font-weight: 700; }
+    .comments-header h4 { font-size: 19px; color: #111827; font-weight: 800; }
     .comment-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-color); }
     .comment-avatar { width: 46px; height: 46px; border-radius: 50%; background: #e5e7eb; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #6b7280; font-size: 15px; }
     .comment-body { flex: 1; }
-    .comment-author { font-weight: 700; font-size: 15px; color: #111827; margin-bottom: 4px; }
+    .comment-author { font-weight: 800; font-size: 15px; color: #111827; margin-bottom: 4px; }
     .comment-text { font-size: 15px; color: var(--text-main); line-height: 1.5; margin-bottom: 6px; }
-    .comment-meta { font-size: 12px; color: #9ca3af; }
+    .comment-meta { font-size: 12px; color: #9ca3af; font-weight: 500; }
 
-    /* Footer */
     footer { background: #111827; color: #9ca3af; padding: 32px 16px; font-size: 12px; text-align: center; line-height: 1.6; }
     footer a { color: #d1d5db; text-decoration: underline; margin: 0 8px; }
 
     @media (max-width: 600px) {
       body { font-size: 17px; }
-      h1.headline { font-size: 24px; }
+      h1.headline { font-size: 26px; }
       p.subheadline { font-size: 17px; }
       .container { padding: 16px 14px 36px; }
-      .btn-whatsapp { font-size: 16px; padding: 14px 18px; }
+      .btn-whatsapp { font-size: 16px; padding: 16px 14px; }
     }
   </style>
 </head>
 <body>
 
   <header class="topbar">
-    <div class="topbar-brand">Portal Pet &amp; Saúde</div>
-    <div class="topbar-tag">Nutrição Veterinária</div>
+    <div class="topbar-brand">Plantão Pet</div>
+    <div class="topbar-tag">ALERTA VETERINÁRIO</div>
   </header>
 
   <main class="container">
     <nav class="breadcrumb">
-      Início &gt; Comportamento Felino &gt; <span>Alimentação</span>
+      Urgência &gt; Saúde Felina &gt; <span>Alimentação</span>
     </nav>
 
-    <!-- MANCHETE FOCADA NA DOR DO FUNIL: Gato Seletivo/Enjoado/Estressado -->
-    <h1 class="headline">Nutricionista Veterinária Alerta: O verdadeiro motivo pelo qual seu gato recusa a ração e vive enjoado (Não é 'frescura')</h1>
+    <!-- MANCHETE: O Medo Oculto -->
+    <h1 class="headline">Seu gato está recusando a ração? Nutricionista faz alerta urgente: "Ele não está sendo fresco, o estômago dele está pedindo socorro."</h1>
     
-    <p class="subheadline">Especialista em protocolos anti-inflamatórios explica que a seletividade e o estresse felino estão ligados à digestão — e libera acesso ao seu projeto de receitas caseiras que já ajudou mais de 8.400 tutoras no Brasil.</p>
+    <p class="subheadline">Especialista explica por que ignorar a falta de apetite ou os enjoos do seu gato pode terminar em uma emergência de R$ 3.000 nesta madrugada — e como desinflamar o sistema digestivo dele hoje mesmo.</p>
 
     <div class="meta-box">
-      <div class="meta-author">Por <strong>Redação Vida Pet</strong> | Revisão técnica nutricional</div>
+      <div class="meta-author">Por <strong>Redação Plantão Pet</strong></div>
       <div class="meta-date">Atualizado hoje às <span id="current-time">09:42</span></div>
-      <div>Tempo de leitura: <strong>3 minutos</strong></div>
+      <div>Alerta de Saúde Animal</div>
     </div>
 
     <article class="content">
-      <p class="lead-paragraph">Se o seu gato cheira o potinho de ração, vira as costas, parece enjoado com frequência ou só aceita comer petiscos específicos, você provavelmente já ouviu que ele é apenas "exigente". Mas a ciência veterinária aponta para outro caminho.</p>
+      <p class="lead-paragraph">Você coloca a ração no potinho, ele cheira, tenta cavar em volta e vira as costas. Você troca a marca. Ele come por um dia e depois volta a rejeitar, muitas vezes vomitando uma espuma amarela ou pelos.</p>
 
-      <!-- IMAGEM 1: Gato recusando comida ou parecendo estressado -->
+      <p>A maioria das tutoras ouve de amigos e até de balconistas de petshop que "gato é seletivo mesmo" e que "uma hora a fome bate e ele come". <strong>Isso é o maior e mais perigoso mito da saúde felina.</strong></p>
+
+      <!-- IMAGEM 1: Gato apático/doente ou em clínica -->
       <figure class="media-card">
-        <!-- Substitua pelo link de um gato virando a cara para o pote de ração -->
-        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80" alt="Gato olhando para tigela de ração">
+        <!-- Substitua pelo link de um gato apático no veterinário ou deitado triste -->
+        <img src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&w=1200&q=80" alt="Gato letárgico recusando alimento">
         <figcaption class="media-caption">
-          Fig 1: A recusa alimentar constante é um dos primeiros sinais de inflamação digestiva e estresse crônico em felinos domésticos.
+          Fig 1: Felinos mascaram a dor. Quando param de comer, o processo inflamatório interno já está em estágio avançado.
         </figcaption>
       </figure>
 
-      <p>A <strong>Cláudia Mendes</strong>, Nutricionista Veterinária especializada em alimentação natural com mais de 9 anos de experiência, alerta que a recusa alimentar raramente é comportamental. Na maioria das vezes, é fisiológica.</p>
+      <p>A Nutricionista Veterinária <strong>Cláudia Mendes</strong>, especializada em protocolos anti-inflamatórios felinos, faz um aviso duro: <em>"Na natureza, felinos escondem a dor para não virarem presas. Quando um gato doméstico finalmente para de comer ou fica 'enjoado', é porque o trato gastrointestinal, o fígado ou os rins dele já estão inflamados no limite."</em></p>
 
-      <p>"Quando um gato passa a recusar a ração seca, apresenta alergias constantes ou picos de ansiedade, o estômago dele está literalmente pedindo socorro. A digestão de alimentos ultraprocessados causa uma inflamação silenciosa, gerando enjoo e estresse no animal", explica a especialista.</p>
-
-      <div class="highlight-box">
-        <strong>A raiz do problema:</strong> Felinos possuem um sistema digestivo sensível, projetado para processar umidade e proteínas frescas. A ração industrial, seca e rica em aditivos, frequentemente causa desconforto gástrico crônico. O gato não come porque associa o alimento ao mal-estar.
+      <div class="alert-box">
+        <h4>⚠️ O caminho silencioso para a internação</h4>
+        <p>A ração seca ultraprocessada causa desidratação crônica. O estômago inflama, gerando enjoo contínuo. Se você ignora os sinais de "seletividade", o próximo passo é o gato se esconder debaixo da cama. Quando você finalmente corre para a clínica, o diagnóstico é quase sempre o mesmo: <strong>insuficiência renal ou lipidose hepática</strong>. Uma internação imediata que raramente custa menos de <strong>R$ 2.500 a R$ 4.000</strong> entre soro, cateteres e exames de sangue.</p>
       </div>
 
-      <p>Para combater essa epidemia silenciosa, Cláudia desenvolveu um protocolo focado em <strong>Alimentação Segura Natural</strong> e <strong>Protocolos Anti-inflamatórios</strong>. O objetivo é simples: curar a inflamação e devolver o prazer de comer através de receitas baratas, usando ingredientes que a tutora já tem em casa.</p>
+      <p>A dor de ver seu melhor amigo de quatro patas em uma gaiola de clínica, lutando pela vida, é devastadora. E a culpa financeira destrói o orçamento de qualquer família.</p>
 
-      <!-- IMAGEM 2: A Nutricionista ou uma tigela de alimentação natural apetitosa -->
-      <figure class="media-card">
-        <!-- Substitua por uma foto da Cláudia Mendes ou de comida natural bonita -->
-        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=80" alt="Alimentação natural para gatos">
-        <figcaption class="media-caption">
-          Fig 2: Protocolos naturais revertem quadros de estresse, alergias e problemas digestivos em poucas semanas.
-        </figcaption>
-      </figure>
+      <p>Mas existe uma janela de tempo para reverter esse quadro antes que a internação seja a única saída.</p>
 
-      <p>O método fez tanto sucesso nos consultórios que se transformou em um verdadeiro <strong>Projeto de Educação Nacional</strong>, que já auxiliou mais de 8.400 gatinhos a voltarem a comer bem e viverem com energia.</p>
+      <h3>Como salvar o apetite (e a vida) do seu gato hoje</h3>
 
-      <!-- O KIT COMPLETO DA CLÁUDIA -->
+      <p>O gato não precisa de rações mais caras. Ele precisa <strong>desinflamar</strong>. Para isso, a Cláudia Mendes desenvolveu uma série de protocolos em casa de <strong>Alimentação Segura Natural</strong>.</p>
+
+      <p>São receitas úmidas, calmantes e anti-inflamatórias extremamente baratas, feitas com ingredientes de fácil digestão (que você já tem na geladeira). O efeito é rápido: a umidade e a proteína verdadeira acalmam o estômago, o enjoo passa, e o apetite volta ferozmente em poucos dias.</p>
+
       <div class="kit-box">
-        <h4>O que a Nutricionista desenvolveu para as tutoras:</h4>
-        <p style="margin-bottom: 15px; font-size: 15px;">Para atacar diretamente as causas do estresse, alergias e falta de apetite, a equipe reuniu todo o protocolo em um Kit Digital que inclui:</p>
+        <h4>O Kit de Resgate e Longevidade (Liberado Hoje):</h4>
         <ul class="kit-list">
-          <li><strong>Guia Principal:</strong> Alimentação Segura Natural para Gatos</li>
-          <li><strong>E-Book Específico:</strong> O que fazer quando seu gato não quer comer</li>
-          <li><strong>E-Book Específico:</strong> Receitas para Gatos Enjoados</li>
-          <li><strong>Guia Prático:</strong> Receitas Calmantes Anti-Estresse</li>
-          <li><strong>Guia Prático:</strong> 15 Receitas Naturais e Caseiras Seguras</li>
-          <li class="bonus"><strong>Bônus:</strong> 30 Receitas Caseiras para Gatos</li>
-          <li class="bonus"><strong>Presente Secreto</strong> Surpresa</li>
+          <li><strong>E-Book SOS:</strong> O que fazer quando seu gato não quer comer</li>
+          <li><strong>Guia Clínico:</strong> Receitas para Gatos Enjoados e Estressados</li>
+          <li><strong>O Manual:</strong> Alimentação Segura Natural para Gatos</li>
+          <li><strong>Bônus de Rotina:</strong> 45 Receitas Caseiras e Calmantes para Imunidade</li>
         </ul>
       </div>
 
-      <p>O grande diferencial do trabalho da Cláudia Mendes é o <strong>formato de distribuição baseado na confiança</strong>.</p> 
-      
-      <p>Como o objetivo central é a educação e o apoio a ONGs de castração e adoção responsável, o projeto não exige um pagamento antecipado comum. <strong>A equipe envia o material completo primeiro pelo WhatsApp</strong>. Após a tutora receber, abrir e conferir as receitas, ela faz uma <strong>contribuição simbólica voluntária</strong> com o valor que escolher para manter o projeto vivo.</p>
+      <p>Para evitar que mais animais morram precocemente ou que tutoras se endividem em clínicas por falta de informação, a Nutricionista transformou esse protocolo em um <strong>Projeto Nacional de Educação</strong>.</p>
 
-      <!-- CTA PARA O WHATSAPP DA ASSISTENTE -->
+      <!-- CTA PARA O WHATSAPP DA ASSISTENTE (Foco no Receba Primeiro) -->
       <div class="cta-container">
-        <h3>Receba o Kit Completo no WhatsApp (Envio Imediato)</h3>
-        <p>A assistente da Cláudia está realizando os envios hoje. Clique no botão abaixo para chamar a equipe no WhatsApp. <strong>Eles enviarão as receitas primeiro</strong> e você contribui apenas depois de receber!</p>
+        <h3>URGENTE: Chame a equipe agora e receba os manuais na hora</h3>
+        <p>A situação de um gato sem comer não pode esperar. Por isso, <strong>não cobramos nada antecipadamente</strong>. A equipe vai te enviar o Kit Completo em PDF direto no seu WhatsApp agora mesmo.</p>
         
         <!-- INSIRA AQUI O SEU LINK DA Z-API / N8N OU WA.ME -->
-        <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Li%20a%20mat%C3%A9ria%20sobre%20a%20Nutricionista%20Cl%C3%A1udia%20Mendes.%20Quero%20receber%20o%20kit%20de%20receitas%20para%20gatos%20e%20saber%20como%20apoiar%20o%20projeto!" target="_blank" class="btn-whatsapp">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
-          </svg>
-          CHAMAR EQUIPE NO WHATSAPP
+        <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Li%20o%20alerta%20m%C3%A9dico%20e%20meu%20gato%20anda%20seletivo/sem%20comer.%20Preciso%20urgente%20receber%20os%20manuais%20da%20Nutricionista%20Cl%C3%A1udia!" target="_blank" class="btn-whatsapp">
+          PEGAR OS MANUAIS NO WHATSAPP
         </a>
-        <span class="btn-subtext">✨ Você recebe as receitas primeiro, sem compromisso financeiro antecipado.</span>
+        <span class="btn-subtext">⚠️ Após receber e salvar o material, você faz apenas uma contribuição simbólica voluntária para ajudar a manter o projeto de castração ativo. <strong>A prioridade agora é o seu gato.</strong></span>
       </div>
     </article>
 
-    <!-- PROVA SOCIAL ADAPTADA AO NOVO FUNIL (Foco na causa, estresse e enjoo) -->
+    <!-- PROVA SOCIAL DE ALTO IMPACTO (Foco na dor resolvida e na confiança) -->
     <section class="comments-section">
       <div class="comments-header">
-        <h4>Comentários das Tutoras (12)</h4>
-        <span style="font-size: 13px; color: #6b7280;">Mais recentes primeiro</span>
+        <h4>Relatos de Tutoras (18)</h4>
       </div>
 
       <div class="comment-item">
-        <div class="comment-avatar">RF</div>
+        <div class="comment-avatar">PM</div>
         <div class="comment-body">
-          <div class="comment-author">Renata Farias</div>
-          <div class="comment-text">Gente, que projeto lindo! Achei que era mentira, mas a assistente me mandou todos os PDFs primeiro mesmo. Meu gato Mingau só vivia enjoado vomitando, fiz a primeira receita hoje e ele raspou o prato. Já fiz meu PIX para ajudar a ONG! 💖</div>
-          <div class="comment-meta">Há 15 minutos • Responder</div>
+          <div class="comment-author">Patrícia Medeiros</div>
+          <div class="comment-text">Leiam isso pelo amor de Deus. Achei que meu Frajola estava só enjoado da ração. Quando vi ele não levantava mais. Gastei R$ 3.800 na clínica mês passado. Se eu tivesse começado essas receitas naturais da Dra Cláudia antes, não teria passado por esse pesadelo. Estou fazendo o protocolo anti-inflamatório agora pra ele não ter recaída.</div>
+          <div class="comment-meta">Há 12 minutos</div>
         </div>
       </div>
 
       <div class="comment-item">
-        <div class="comment-avatar">CM</div>
+        <div class="comment-avatar">LR</div>
         <div class="comment-body">
-          <div class="comment-author">Carla Muniz</div>
-          <div class="comment-text">As receitas calmantes salvaram minha vida. Tenho dois resgatados que viviam brigando por estresse, mudei a alimentação baseada no livro anti-estresse da Nutri e o clima em casa é outro.</div>
-          <div class="comment-meta">Há 45 minutos • Responder</div>
+          <div class="comment-author">Luciana Ribeiro</div>
+          <div class="comment-text">Fiquei chocada com a honestidade delas. Eu tava sem limite no cartão de tanto gastar com sachê caro que o gato cheirava e deixava apodrecer. Chamei no WhatsApp chorando, a assistente mandou os PDFs na mesma hora. Fiz a receitinha pro enjoo e ele DEVOROU. Hoje de manhã fiz o Pix da contribuição com o maior gosto do mundo. Salvaram meu menino!</div>
+          <div class="comment-meta">Há 35 minutos</div>
         </div>
       </div>
 
       <div class="comment-item">
-        <div class="comment-avatar">SL</div>
+        <div class="comment-avatar">FC</div>
         <div class="comment-body">
-          <div class="comment-author">Sônia Lemos</div>
-          <div class="comment-text">Minha gata tem 11 anos, parou de comer a ração seca do nada, levei no vet e não deu nada nos exames. Disseram que era frescura de gato velho. Comecei a dar os patês naturais da Cláudia e ela voltou a brincar igual filhote. Recomendo muito esse material.</div>
-          <div class="comment-meta">Há 2 horas • Responder</div>
-        </div>
-      </div>
-
-      <div class="comment-item">
-        <div class="comment-avatar">JP</div>
-        <div class="comment-body">
-          <div class="comment-author">Juliana Prado</div>
-          <div class="comment-text">Chamei lá no Whats, me responderam super rápido. É tão raro ver profissionais confiando nas pessoas hoje em dia né? Entregaram tudo e fiz questão de contribuir com o projeto de castração delas. 🙏</div>
-          <div class="comment-meta">Há 4 horas • Responder</div>
+          <div class="comment-author">Fernanda Costa</div>
+          <div class="comment-text">Meu siamês vivia estressado, arrancando pelo e vomitando. Eu não aguentava mais ver ele sofrer e não tinha dinheiro pra pagar vet especialista. As receitas calmantes desse material mudaram meu gato da água pro vinho em 4 dias. Ele dorme a noite toda e o pelo parou de cair.</div>
+          <div class="comment-meta">Há 1 hora</div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Portal Pet &amp; Saúde © 2026. Projeto Educação Felina.</p>
-    <p style="margin-top: 8px;">
-      <a href="#">Termos de Uso</a> | 
-      <a href="#">Política de Privacidade</a>
-    </p>
+    <p>Plantão Pet Brasil © 2026. Alerta de Saúde Pública e Educação Veterinária.</p>
     <p style="margin-top: 12px; font-size: 11px; color: #6b7280; max-width: 650px; margin-left: auto; margin-right: auto;">
-      Aviso: As informações contidas nesta publicação têm caráter educativo. A transição para alimentação natural deve respeitar as condições individuais do seu pet.
+      Aviso Médico: O material cedido é educativo. Se o seu animal estiver prostrado há mais de 24 horas sem ingerir água, busque atendimento veterinário emergencial imediatamente.
     </p>
   </footer>
 
