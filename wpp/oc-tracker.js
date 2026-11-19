@@ -1,13 +1,7 @@
-/* OpCenter · rastreio da pressel (Google e TikTok → WhatsApp) · v2 (06/11/2026: TikTok)
- * Registra visita e clique no botão do WhatsApp, guardando o id do clique e os parâmetros do anúncio:
- *   Google: gclid/gbraid/wbraid + cid/agid/cr/kw/net/dev (modelo de acompanhamento)
- *   TikTok: ttclid + utm_* + tt_cid/tt_agid/tt_ad (parâmetros de URL do anúncio)
- * No visitante do TikTok carrega o pixel do TikTok (TT_PIXEL) e dispara "Contact" no clique do botão, com o mesmo
- * event_id que o OpCenter repete pela Events API (o TikTok deduplica).
- * Colocar na pressel antes de </body>. TRACK_URL = relay HTTPS; TT_PIXEL = ID do pixel do TikTok (não é segredo). */
+/* OpCenter · rastreio da pressel (Google e TikTok → WhatsApp) · v2.1 (fix SDK Contact) */
 (function () {
   var TRACK_URL = "https://oc-relay-gilt.vercel.app/api/hit";
-  var TT_PIXEL = "DBU83Q3C77UCDH70QA60";   // ex.: "D4ABCDEF1234567890" (Gerenciador de Eventos do TikTok → pixel → ID)
+  var TT_PIXEL = "DBU83Q3C77UCDH70QA60";
   var KEYS = ["gclid", "gbraid", "wbraid", "cid", "agid", "cr", "kw", "net", "dev",
               "ttclid", "utm_source", "utm_campaign", "utm_medium", "utm_content", "utm_term", "tt_cid", "tt_agid", "tt_ad"];
   var TTL = 7 * 24 * 3600 * 1000;
@@ -16,9 +10,9 @@
   if (st.t && Date.now() - st.t > TTL) st = {};
   KEYS.forEach(function (k) {
     var v = q.get(k);
-    if (v && v.charAt(0) !== "{" && v.indexOf("__") !== 0) fresh[k] = v;   // ignora {campaignid} / __CAMPAIGN_ID__ não trocados
+    if (v && v.charAt(0) !== "{" && v.indexOf("__") !== 0) fresh[k] = v;
   });
-  if (Object.keys(fresh).length) {            // clique novo de anúncio: troca tudo (não mistura Google com TikTok)
+  if (Object.keys(fresh).length) {
     st = fresh; st.t = Date.now();
     try { localStorage.setItem("oc_g", JSON.stringify(st)); } catch (e) {}
   }
@@ -66,7 +60,7 @@
     if (!a) return;
     var m = (a.getAttribute("href") || "").match(/(?:wa\.me\/|phone=)(\d+)/);
     var evid = tiktok ? "ct_" + vid + "_" + Date.now() : "";
-    if (tt && evid) { try { tt.track("Contact", {}, { event_id: evid }); } catch (err) {} }
+    if (evid) { try { var sdk = (window.ttq && window.ttq.instance) ? window.ttq.instance(TT_PIXEL) : tt; if (sdk) sdk.track("Contact", {}, { event_id: evid }); } catch (err) {} }
     send("click", m && m[1], evid);
   }, true);
 })();
